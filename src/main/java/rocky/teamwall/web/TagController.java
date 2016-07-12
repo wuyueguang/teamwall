@@ -29,21 +29,6 @@ public class TagController {
 	
 	@ResponseBody //spring根据此注解，自动返回json
 	@RequestMapping(value = "/{uid}/taglist", method = RequestMethod.GET, produces = {"application/json;charset=UTF-8"})
-	
-	public TagDTO tagList(@PathVariable("uid")String uid){
-		TagDTO result;
-		try{
-			List<Tag> list = tagService.getTagList(uid);
-			result = new TagDTO(true, list);
-		}
-		catch(Exception e){
-			logger.error(e.getMessage(), e);
-			result = new TagDTO(false, e.getMessage());
-		}
-		
-		return result;
-	}
-	/*
 	public JsonResult< List<Tag> > tagList(@PathVariable("uid")String uid){
 		JsonResult< List<Tag> > result;
 		try{
@@ -57,29 +42,12 @@ public class TagController {
 		
 		return result;
 	}
-	*/
 	/*
 		curl http://127.0.0.1:8080/teamwall/tag/123/taglist
 	 */
 	
 	@ResponseBody //spring根据此注解，自动返回json
 	@RequestMapping(value = "/{uid}/newtag", method = RequestMethod.POST, produces = {"application/json;charset=UTF-8"})
-	
-	public TagDTO newTag(@PathVariable("uid")String uid,
-										@RequestParam("tag")String tag){
-		TagDTO result;
-		try{
-			int count = tagService.addTag(uid, tag);
-			result = new TagDTO(true, new Integer(count));
-		}
-		catch(Exception e){
-			logger.error(e.getMessage(), e);
-			result = new TagDTO(false, e.getMessage());
-		}
-		
-		return result;
-	}
-	/*
 	public JsonResult< Integer > newTag(@PathVariable("uid")String uid,
 										@RequestParam("tag")String tag){
 		JsonResult< Integer > result;
@@ -94,7 +62,6 @@ public class TagController {
 		
 		return result;
 	}
-	*/
 	/*
 		curl http://127.0.0.1:8080/teamwall/tag/123/newtag -d tag="tag name"
 	 */

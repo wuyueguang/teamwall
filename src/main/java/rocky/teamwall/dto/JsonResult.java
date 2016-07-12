@@ -7,6 +7,8 @@ public class JsonResult<T> {
 	private T data;
 	private String error;
 	
+	public JsonResult() {}
+	
 	public JsonResult(boolean success, T data) {
 		this.success = success;
 		this.data = data;
