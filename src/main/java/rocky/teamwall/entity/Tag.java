@@ -11,6 +11,12 @@ public class Tag {
 		
 		String tag;
 
+		public Tag() {}
+		public Tag(String uid, String tag) {
+			this.uid = uid;
+			this.tag = tag;
+		}
+		
 		public String getUid() {
 			return uid;
 		}
