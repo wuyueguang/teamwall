@@ -9,6 +9,13 @@ public class JsonResult<T> {
 	
 	public JsonResult() {}
 	
+	
+	@Override
+	public String toString() {
+		return "JsonResult [success=" + success + ", data=" + data + ", error=" + error + "]";
+	}
+
+
 	public JsonResult(boolean success, T data) {
 		this.success = success;
 		this.data = data;

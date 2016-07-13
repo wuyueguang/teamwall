@@ -36,4 +36,7 @@
         
         <!-- 扫描web相关的bean -->
         <context:component-scan base-package="rocky.teamwall.web"></context:component-scan>
+        
+        <!-- REST日志切片类 -->
+		<bean id="restLogAspect" class="rocky.teamwall.aspect.RestLogAspect"></bean>
 </beans>

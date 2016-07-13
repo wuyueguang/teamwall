@@ -5,6 +5,7 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,6 +19,7 @@ import rocky.teamwall.entity.Tag;
 import rocky.teamwall.service.TagService;
 
 @Controller
+@EnableAspectJAutoProxy//
 @RequestMapping("/tag") //url:/模块/资源/细分，例如/v1/tag/{uid}/taglist
 public class TagController {
 	
@@ -34,6 +36,7 @@ public class TagController {
 		try{
 			List<Tag> list = tagService.getTagList(uid);
 			result = new JsonResult< List<Tag> >(true, list);
+			logger.info("------------------------------->TagController.tagList");
 		}
 		catch(Exception e){
 			logger.error(e.getMessage(), e);
